@@ -29,6 +29,11 @@ class article extends model
 		return $query->fetchAll();
 	}
 	
+	public function get()
+	{
+		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC");
+		return $query->fetchAll();
+	}
 	public function get_last()
 	{
 		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC LIMIT 1");
