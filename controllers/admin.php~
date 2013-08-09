@@ -1,0 +1,56 @@
+<?php
+class admin 
+{
+	function index()
+	{
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'views/header.php';
+		require_once 'views/admin.php';
+		require_once 'views/footer.php'	;
+	}
+	private function isAdmin()
+	{
+		//session_start();
+		if ($_SESSION['nick'] = 'blzkz')
+			return true;
+		return false;
+	}
+	function newEntry()
+	{
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'views/header.php';
+		require_once 'views/entry.php';
+		require_once 'views/footer.php'	;
+	}
+	function control()
+	{
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'helpers/dbconnector.php';
+		$con = connect();
+		if (isset($_POST['title'])
+			&& ($_POST['title'] != '')
+			&& isset($_POST['content'])
+			&& ($_POST['content']) != '')
+			{
+				$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+				$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+				$author = $_SESSION['nick'];
+				if ($con->query("INSERT INTO news (title, content, author) VALUES ('".$title."','".$content."','".$author."')"))
+					redirect(base_url().'admin');
+				$row = $query->fetch();
+				if ($row['password'] == $_POST['password']) {
+					//session_start();
+					$_SESSION['nick'] = $_POST['nick'];
+					redirect(base_url());
+				}
+				else redirect(base_url().'admin/newEntry/error');
+			}
+		else
+		{
+			redirect(base_url().'admin/newEntry/error2');
+		}
+	}
+}

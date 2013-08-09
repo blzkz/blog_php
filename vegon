@@ -1,0 +1,40 @@
+<head>
+	<title>Redditits</title>
+	<style>
+		img { display: block; }
+	</style>
+</head>
+<body>
+	<button id="botontetas">TETAS</button>
+	<div id="imagenes"></div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script>
+
+$(document).ready(function() {
+	var imagenes = [];
+
+	function dametetas() {
+		$('#imagenes img').remove();
+
+		$.getJSON("http://www.reddit.com/r/camwhores+RealGirls+gentlemanboners+girlsinyogapants+randomsexiness+SceneGirls+FestivalSluts+AngieVaronaLegal+randomsexygifs+kpics+CellShots/.json?jsonp=?", function(data) { 
+			$.each(data.data.children, function(i,item){
+				if(i > 500) return false;
+				var imagenurl = item.data.url;
+				if (imagenurl.match(/\.(jpeg|jpg|gif|png)$/) != null) { imagenes.unshift(item.data.url); }
+				
+	    		//$("<img/>").attr("src", item.data.url).appendTo("#imagenes");
+			});
+
+			var imagen = imagenes[Math.floor(Math.random()*imagenes.length)]
+
+			$("<img/>").attr("src", imagen).appendTo("#imagenes");
+		});
+	}
+
+	jQuery("#botontetas").click(function() {
+		dametetas();
+	});
+});
+
+	</script>
+</body>
