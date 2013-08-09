@@ -15,6 +15,13 @@ class comment extends model
 		$records = (int) $q->fetch(PDO::FETCH_OBJ)->records;
 		return $records;
 	}
+
+	public function get()
+	{
+		$query = self::$con->query("SELECT * FROM comments ORDER BY id DESC");
+		return $query->fetchAll();
+	}
+
 	public function get_all($id)
 	{
 		$query = self::$con->query("SELECT * FROM comments where id_entry=$id");
