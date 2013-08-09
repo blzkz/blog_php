@@ -54,4 +54,9 @@ class article extends model
 		return $records;
 
 	}
+
+	public function update($id, $title, $content)
+	{
+		self::$con->query("UPDATE news SET title='$title', content='$content' where id_news = $id");
+	}
 }
