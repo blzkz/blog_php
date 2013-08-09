@@ -8,6 +8,7 @@ class blog
 		require_once 'models/comment.php';
 		$art = new article();
 		$num = $art->count();
+		gettype($num);
 		$art = $art->get_n_last(5);
 		$i = 0;
 		$com = new comment();
@@ -93,13 +94,13 @@ class blog
 				require_once 'models/comment.php';
 				$art = new article();
 				$num = $art->count();
-				$art = $ar->get_n_last(5);
+				$art = $art->get_n_last(5);
 				$i = 0;
 				$com = new comment();
 				foreach ($art as $article)
 				{
-					$id = $art['id_news'];
-					$art[$i]['n_comments'] = (int)$com->count($id);
+					$id = $article['id_news'];
+					$art[$i]['n_comments'] = $com->count($id);
 					$i++;
 				}
 				$max_pages = ceil(($num-5)/10)+1;
@@ -122,7 +123,7 @@ class blog
 						$articles[$i]['n_comments'] = (int)$com->count($id);
 						$i++;
 					}
-					$num_ent = $ent->count();
+					$num_ent = $art->count();
 					$max_pages = ceil(($num_ent - 5)/10) + 1;
 					require_once('views/header.php');
 					require_once('views/pagina.php');

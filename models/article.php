@@ -52,7 +52,12 @@ class article extends model
 		$query->execute();
 		return $query->rowCount();
 		*/
-		$query = self::$con->query("SELECT COUNT (*) FROM news");
-		return $query;
+		/*$query = self::$con->query("SELECT COUNT(id) as records FROM news");
+		return (int)$query->fetch(PDO::FETCH_OBJ)->records;*/
+		$q = self::$con->prepare("SELECT COUNT(*) as records FROM news");
+		$q->execute();    
+		$records = (int) $q->fetch(PDO::FETCH_OBJ)->records;
+		return $records;
+
 	}
 }

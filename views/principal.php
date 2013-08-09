@@ -2,7 +2,7 @@
 		<div class="slider-wrapper theme-light">
 	        <div id="slider" class="nivoSlider">
 	            <img src="images/img1.png" data-thumb="images/img1.jpg" alt="" />
-	            <a href="http://www.elosohormiguero.es"><img src="images/img1.png" data-thumb="images/img1.jpg" alt="jejeje" title="Desarrollo y diseño de El oso Hormiguero" /></a>
+	            <a href="http://www.vaenserie.com"><img src="images/img1.png" data-thumb="images/img1.jpg" alt="jejeje" title="Desarrollo y diseño de El oso Hormiguero" /></a>
 	            <img src="images/img1.png" data-thumb="images/img1.jpg" alt=""/>
 	            <img src="images/img1.png" data-thumb="images/img1.jpg" alt="" title="#htmlcaption" />
 	        </div>
