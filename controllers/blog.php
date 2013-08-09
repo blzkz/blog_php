@@ -8,7 +8,6 @@ class blog
 		require_once 'models/comment.php';
 		$art = new article();
 		$num = $art->count();
-		gettype($num);
 		$art = $art->get_n_last(5);
 		$i = 0;
 		$com = new comment();
