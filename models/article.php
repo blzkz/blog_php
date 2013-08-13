@@ -3,12 +3,6 @@ class article extends model
 {
 	// Get N last posts
 	//private static $con;
-	
-	function __construct()
-	{
-		require_once 'models/connect.php';
-		self::$con = connect::getInstace();
-	}
 
 	public function get_n_last($n)
 	{
