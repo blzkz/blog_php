@@ -21,9 +21,9 @@ class Uri
 	function array_segment()
 	{
 		if (isset($_SERVER['ORIG_PATH_INFO']))
-			$array = explode('/', $_SERVER['ORIG_PATH_INFO']);
+			return explode('/', $_SERVER['ORIG_PATH_INFO']);
 		else if(isset ($_SERVER['PATH_INFO']))
-				$array = explode ('/', $_SERVER['PATH_INFO']);
+				return explode('/', $_SERVER['PATH_INFO']);
 			else return NULL;
 	}
 }
