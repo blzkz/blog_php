@@ -59,4 +59,9 @@ class article extends model
 	{
 		self::$con->query("UPDATE news SET title='$title', content='$content' where id_news = $id");
 	}
+
+	public function delete($id)
+	{
+		self:$con->query("DELETE FROM news WHERE id_news = $id");
+	}
 }
