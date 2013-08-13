@@ -62,6 +62,6 @@ class article extends model
 
 	public function delete($id)
 	{
-		self:$con->query("DELETE FROM news WHERE id_news = $id");
+		self::$con->query("DELETE FROM news WHERE id_news = $id");
 	}
 }
