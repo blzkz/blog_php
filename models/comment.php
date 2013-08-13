@@ -1,11 +1,6 @@
 <?php
 class comment extends model
 {
-	function __construct()
-	{
-		require_once 'models/connect.php';
-		self::$con = connect::getInstace();
-	}
 
 	public function count($id)
 	{
