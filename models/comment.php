@@ -20,6 +20,7 @@ class comment extends model
 	public function get_by_id($id)
 	{
 		$query = self::$con->query("SELECT * FROM comments where id = $id");
+		return $query->fetch();
 	}
 
 	public function get_all($id)
