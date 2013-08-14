@@ -40,7 +40,7 @@ class admin
 			&& ($_POST['content']) != '')
 			{
 				require_once 'models/article.php';
-				$article new article();
+				$article = new article();
 				$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
 				$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
 				$author = $_SESSION['nick'];
@@ -200,7 +200,7 @@ class admin
 		redirect(base_url().'admin/manageComments');
 	}
 
-	public public function manageCategories()
+	public function manageCategories()
 	{
 		$z = 'Ent';
 		if (!$this->isAdmin())
