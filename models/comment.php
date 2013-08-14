@@ -35,9 +35,9 @@ class comment extends model
 		return $query->fetchAll();
 	}
 
-	public function update($id, $content)
+	public function update($id, $comment)
 	{
-		self::$con->query("UPDATE comments SET commment='$comment' where id = $id");
+		self::$con->query("UPDATE comments SET comment='$comment' where id = $id");
 	}
 
 	public function delete($id)

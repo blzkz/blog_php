@@ -167,7 +167,7 @@ class admin
 
 	}
 
-	public function controlCom()
+	public function controlComment()
 	{
 		$uri = new uri();
 		$id = $uri->segment(3);
@@ -180,6 +180,7 @@ class admin
 		require_once 'models/comment.php';
 		$com_content = htmlspecialchars($_POST['comment'], ENT_QUOTES);
 		$comment = new comment();
+		echo $com_content;
 		$comment = $comment->update($id, $com_content);
 		redirect(base_url().'admin/manageComments');
 	}
