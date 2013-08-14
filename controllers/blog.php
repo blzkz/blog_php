@@ -72,8 +72,9 @@ class blog
 				$uri = new uri();
 				$user = $user->get_by_nick($_SESSION['nick']);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
-				$id_news = $uri->segment(3);
+				$id_news = htmlspecialchars($_POST['id'], ENT_QUOTES);
 				$comment->insert($id_news, $user['nick'], $user['email'], $content);
+				redirect($_SERVER['HTTP_REFERER']);
 			}
 			else die("no has completado el formulario");
 		}
