@@ -57,9 +57,9 @@ class blog
 				$nick = htmlspecialchars($_POST['nick'],ENT_QUOTES);
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
-				$id_news = htmlspecialchars($_POST['id'],ENT_QUOTES);
+				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
 				//echo 'id '.$id_news.' nick '.$nick.' email '.$email. ' com '.$content;
-				$comment->insert($id_news, $nick, $email, $content);
+				$comment->insert($id_article, $nick, $email, $content);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}

@@ -11,6 +11,12 @@ class comment extends model
 		return $records;
 	}
 
+	public function insert($id_article, $nick, $email, $content, $ip='0')
+	{
+		return self::$con->query("INSERT INTO comments (id_entry, comment, email, nick, ip) 
+			VALUES ('$id_article', '$content', '$email', '$nick', '$ip')");
+	}
+
 	public function get()
 	{
 		$query = self::$con->query("SELECT * FROM comments ORDER BY id DESC");
