@@ -11,4 +11,9 @@ class category extends model
 	{
 		return self::$con->query("INSERT INTO categories (name) values ('$name')");
 	}
+
+	public function delete($id)
+	{
+		return self::$con->query("DELETE FROM categories WHERE id = $id");
+	}
 }

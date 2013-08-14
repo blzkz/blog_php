@@ -242,5 +242,27 @@ class admin
 		redirect(base_url().'admin/manageCategories');
 	}
 
+	public function editCategory()
+	{
+		redirect(base_url().'admin/manageCategories');
+	}
+
+	public function deleteCategory()
+	{
+		$uri = new uri();
+		$id = $uri->segment(3);
+		if ($id < 1)
+			die('The comment does not exist');
+
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'models/category.php';
+		$category = new category();
+		$category = $category->delete($id);
+		
+		redirect(base_url().'admin/manageCategories');
+	}
+
 
 }
