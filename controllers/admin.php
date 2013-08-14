@@ -1,7 +1,7 @@
 <?php
 class admin 
 {
-	function index()
+	public function index()
 	{
 		$z = 'das';
 		if (!$this->isAdmin())
@@ -18,7 +18,7 @@ class admin
 			return true;
 		return false;
 	}
-	function newArticle()
+	public function newArticle()
 	{
 		$z = 'Ent';
 		if (!$this->isAdmin())
@@ -28,7 +28,7 @@ class admin
 		require_once 'views/admin/article.php';
 		require_once 'views/admin/footer.php';
 	}
-	function control()
+	public function control()
 	{
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
@@ -59,7 +59,7 @@ class admin
 	}
 
 	/* control del form de editArticle */
-	function edit()
+	public function edit()
 	{
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
@@ -84,7 +84,7 @@ class admin
 		}
 	}
 
-	function deleteArticle()
+	public function deleteArticle()
 	{
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
@@ -98,7 +98,7 @@ class admin
 			redirect(base_url().'admin/manageArticles/error3');
 	}
 
-	function manageArticles()
+	public function manageArticles()
 	{
 		$z = 'Ent';
 		if (!$this->isAdmin())
@@ -114,7 +114,7 @@ class admin
 
 	}
 
-	function editArticle()
+	public function editArticle()
 	{
 		$uri = new uri();
 		$id = $uri->segment(3);
@@ -134,7 +134,7 @@ class admin
 		require_once 'views/admin/footer.php';
 	}
 
-	function manageComments()
+	public function manageComments()
 	{
 		$z = 'Ent';
 		if (!$this->isAdmin())
@@ -150,7 +150,7 @@ class admin
 
 	}
 
-	function editComment()
+	public function editComment()
 	{
 		$uri = new uri();
 		$id = $uri->segment(3);
@@ -171,7 +171,23 @@ class admin
 
 	}
 
-	function deleteComment()
+	public function controlCom()
+	{
+		$uri = new uri();
+		$id = $uri->segment(3);
+		if ($id < 1)
+			die('The comment does not exist');
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/comment.php';
+		$com_content = htmlspecialchars($_POST['comment'], ENT_QUOTES);
+		$comment = new comment();
+		$comment = $comment->update($id, $com_content);
+	}
+
+	public function deleteComment()
 	{
 		$uri = new uri();
 		$id = $uri->segment(3);
@@ -188,7 +204,7 @@ class admin
 		redirect(base_url().'admin/manageComments');
 	}
 
-	public function manageCategories()
+	public public function manageCategories()
 	{
 		$z = 'Ent';
 		if (!$this->isAdmin())
