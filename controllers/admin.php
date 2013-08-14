@@ -28,28 +28,24 @@ class admin
 		require_once 'views/admin/article.php';
 		require_once 'views/admin/footer.php';
 	}
+
+	/* cotrol de new article */
 	public function control()
 	{
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
-		require_once 'helpers/dbconnector.php';
-		$con = connect();
 		if (isset($_POST['title'])
 			&& ($_POST['title'] != '')
 			&& isset($_POST['content'])
 			&& ($_POST['content']) != '')
 			{
+				require_once 'models/article.php';
+				$article new article();
 				$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
 				$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
 				$author = $_SESSION['nick'];
-				if ($con->query("INSERT INTO news (title, content, author) VALUES ('".$title."','".$content."','".$author."')"))
+				if ($article->insert($title, $content, $author))
 					redirect(base_url().'admin');
-				$row = $query->fetch();
-				if ($row['password'] == $_POST['password']) {
-					//session_start();
-					$_SESSION['nick'] = $_POST['nick'];
-					redirect(base_url());
-				}
 				else redirect(base_url().'admin/newArticle/error');
 			}
 		else
