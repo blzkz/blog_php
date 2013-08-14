@@ -4,6 +4,11 @@ class article extends model
 	// Get N last posts
 	//private static $con;
 
+	public function insert($title, $content, $author)
+	{
+		return self::$con->query("INSERT INTO news (title, content, author) VALUES ('".$title."','".$content."','".$author."')");
+	}
+
 	public function get_n_last($n)
 	{
 		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC limit $n");
@@ -51,11 +56,11 @@ class article extends model
 
 	public function update($id, $title, $content)
 	{
-		self::$con->query("UPDATE news SET title='$title', content='$content' where id_news = $id");
+		return self::$con->query("UPDATE news SET title='$title', content='$content' where id_news = $id");
 	}
 
 	public function delete($id)
 	{
-		self::$con->query("DELETE FROM news WHERE id_news = $id");
+		return self::$con->query("DELETE FROM news WHERE id_news = $id");
 	}
 }
