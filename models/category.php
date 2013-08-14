@@ -7,4 +7,8 @@ class category extends model
 		return $query->fetchAll();
 	}
 
+	public function insert($name)
+	{
+		return self::$con->query("INSERT INTO categories (name) values ('$name')");
+	}
 }

@@ -181,6 +181,7 @@ class admin
 		$com_content = htmlspecialchars($_POST['comment'], ENT_QUOTES);
 		$comment = new comment();
 		$comment = $comment->update($id, $com_content);
+		redirect(base_url().'admin/manageComments');
 	}
 
 	public function deleteComment()
@@ -215,5 +216,31 @@ class admin
 		require_once 'views/admin/footer.php';
 
 	}
+
+	public function addCategory()
+	{
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'views/admin/header.php';
+		require_once 'views/admin/sidebar.php';
+		require_once 'views/admin/add_category.php';
+		require_once 'views/admin/footer.php';
+	}
+
+	public function controlCategory()
+	{
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/category.php';
+		$name = htmlspecialchars($_POST['name'], ENT_QUOTES);
+		$category = new category();
+		$category->insert($name);
+		redirect(base_url().'admin/manageCategories');
+	}
+
 
 }

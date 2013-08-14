@@ -6,7 +6,7 @@
 					<th>Name</th>
 					<!-- <th>Comments</th>  -->
 					<th>Options</th>
-					<th><img class='img-grey' src='<?php echo base_url();?>images/plus.png'> New</th>
+					<th><a href='<?php echo base_url();?>admin/addCategory'><img class='img-grey' src='<?php echo base_url();?>images/plus.png'> New</a></th>
 				</tr>
 			</thead>
 			<tbody>
