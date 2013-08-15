@@ -13,7 +13,7 @@ class blog
 		$com = new comment();
 		foreach ($art as $article)
 		{
-			$id = $article['id_news'];
+			$id = $article['id_articles'];
 			$art[$i]['n_comments'] = $com->count($id);
 			//print_r($ent[$i]['n_comments']);
 			$i++;
@@ -58,7 +58,7 @@ class blog
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
 				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
-				//echo 'id '.$id_news.' nick '.$nick.' email '.$email. ' com '.$content;
+				//echo 'id '.$id_articles.' nick '.$nick.' email '.$email. ' com '.$content;
 				$comment->insert($id_article, $nick, $email, $content);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
@@ -72,8 +72,8 @@ class blog
 				$uri = new uri();
 				$user = $user->get_by_nick($_SESSION['nick']);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
-				$id_news = htmlspecialchars($_POST['id'], ENT_QUOTES);
-				$comment->insert($id_news, $user['nick'], $user['email'], $content);
+				$id_articles = htmlspecialchars($_POST['id'], ENT_QUOTES);
+				$comment->insert($id_articles, $user['nick'], $user['email'], $content);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 			else die("no has completado el formulario");
@@ -99,7 +99,7 @@ class blog
 				$com = new comment();
 				foreach ($art as $article)
 				{
-					$id = $article['id_news'];
+					$id = $article['id_articles'];
 					$art[$i]['n_comments'] = $com->count($id);
 					$i++;
 				}
@@ -119,7 +119,7 @@ class blog
 					$com = new comment();
 					foreach ($articles as $article)
 					{
-						$id = $article['id_news'];
+						$id = $article['id_articles'];
 						$articles[$i]['n_comments'] = (int)$com->count($id);
 						$i++;
 					}
