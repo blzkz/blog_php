@@ -6,48 +6,48 @@ class article extends model
 
 	public function insert($title, $content, $author)
 	{
-		return self::$con->query("INSERT INTO news (title, content, author) VALUES ('".$title."','".$content."','".$author."')");
+		return self::$con->query("INSERT INTO articles (title, content, author) VALUES ('".$title."','".$content."','".$author."')");
 	}
 
 	public function get_n_last($n)
 	{
-		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC limit $n");
+		$query = self::$con->query("SELECT * FROM articles ORDER BY id_articles DESC limit $n");
 		return $query->fetchAll();
 	}	
 
 	public function get_n($n)
 	{
-		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC limit $n");
+		$query = self::$con->query("SELECT * FROM articles ORDER BY id_articles DESC limit $n");
 		return $query->fetchAll();
 	}
 		
 	public function get_page($page, $n_posts = 10)
 	{
 		$from = ($page-1)*$n_posts;
-		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC LIMIT $from, $n_posts");
+		$query = self::$con->query("SELECT * FROM articles ORDER BY id_articles DESC LIMIT $from, $n_posts");
 		return $query->fetchAll();
 	}
 	
 	public function get()
 	{
-		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC");
+		$query = self::$con->query("SELECT * FROM articles ORDER BY id_articles DESC");
 		return $query->fetchAll();
 	}
 	public function get_last()
 	{
-		$query = self::$con->query("SELECT * FROM news ORDER BY id_news DESC LIMIT 1");
+		$query = self::$con->query("SELECT * FROM articles ORDER BY id_articles DESC LIMIT 1");
 		return $query->fetch();
 	}
 
 	public function get_by_id($id)
 	{
-		$query = self::$con->query("SELECT * FROM news where id_news = $id");
+		$query = self::$con->query("SELECT * FROM articles where id_articles = $id");
 		return $query->fetch();
 	}
 	
 	public function count()
 	{
-		$q = self::$con->prepare("SELECT COUNT(*) as records FROM news");
+		$q = self::$con->prepare("SELECT COUNT(*) as records FROM articles");
 		$q->execute();    
 		$records = (int) $q->fetch(PDO::FETCH_OBJ)->records;
 		return $records;
@@ -56,11 +56,11 @@ class article extends model
 
 	public function update($id, $title, $content)
 	{
-		return self::$con->query("UPDATE news SET title='$title', content='$content' where id_news = $id");
+		return self::$con->query("UPDATE articles SET title='$title', content='$content' where id_articles = $id");
 	}
 
 	public function delete($id)
 	{
-		return self::$con->query("DELETE FROM news WHERE id_news = $id");
+		return self::$con->query("DELETE FROM articles WHERE id_articles = $id");
 	}
 }
