@@ -6,7 +6,7 @@
 		if ($i===1)
 		{
 			echo "<div class='grid_12'>";
-			echo "<a href='".base_url().'blog/article/'.$entry['id_articles']."' >".'<h3>'.$entry['title'].'</h3></a>';
+			echo "<a href='".base_url().'blog/article/'.$entry['id_article']."' >".'<h3>'.$entry['title'].'</h3></a>';
 			echo 'by '.$entry['author'].' '.$entry['n_comments'].' comentarios.'; ?>
 			<div class="img" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
 			<?php
@@ -25,7 +25,7 @@
 			{
 				echo "<div class='grid_6'>";
 			}
-			echo "<a href='".base_url().'blog/article/'.$entry['id_articles']."' >".'<h3>'.$entry['title'].'</h3></a>';
+			echo "<a href='".base_url().'blog/article/'.$entry['id_article']."' >".'<h3>'.$entry['title'].'</h3></a>';
 			echo 'by '.$entry['author'].' '.$entry['n_comments'].' comentarios.'; ?>
 			<div class="img-small" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
 			<?php
