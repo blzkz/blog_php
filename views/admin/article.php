@@ -9,7 +9,7 @@
 				<div class='grid_10'><input name="url" id='url' type="text"></div>
 			</div>
 			<div class='container_12'>
-				<div class='grid_2' style='text-align:right'><label for='password'>Content: </label></div>
+				<div class='grid_2' style='text-align:right'><label for='content'>Content: </label></div>
 				<div class='grid_10'><textarea name="content" id="content"></textarea></div>
 			</div>
 			<input type="submit" name="submit" value="Enviar">

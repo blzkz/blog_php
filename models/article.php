@@ -4,7 +4,7 @@ class article extends model
 	// Get N last posts
 	//private static $con;
 
-	public function insert($title, $content, $author)
+	public function insert($title, $content, $author, $slider = 0)
 	{
 		return self::$con->query("INSERT INTO articles (title, content, author) VALUES ('".$title."','".$content."','".$author."')");
 	}
@@ -23,7 +23,7 @@ class article extends model
 		
 	public function get_page($page, $n_posts = 10)
 	{
-		$from = ($page-1)*$n_posts;
+		$from = ($page-1)*$n_posts - 5;
 		$query = self::$con->query("SELECT * FROM articles ORDER BY id_article DESC LIMIT $from, $n_posts");
 		return $query->fetchAll();
 	}
