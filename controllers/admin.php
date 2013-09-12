@@ -265,5 +265,22 @@ class admin
 		redirect(base_url().'admin/manageCategories');
 	}
 
+	// Manage the slider images, description and links
+
+	public function manageSlider()
+	{
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/slider.php';
+		$slides = new category();
+		$slides = $slides->get();
+		require_once 'views/admin/header.php';
+		require_once 'views/admin/sidebar.php';
+		require_once 'views/admin/man_slider.php';
+		require_once 'views/admin/footer.php';
+
+	}
 
 }
