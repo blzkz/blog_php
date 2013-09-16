@@ -55,7 +55,7 @@
 				<div id="collapseFour" class="accordion-body collapse <?php echo ($z==='Set')? 'in' : 'out';?>">
 					<div class='accordion-inner'>
 						<ul class="unstyled">
-						<li><a href="#">Slider</a></li>
+						<li><a href="<?php echo base_url().'admin/manageSlider/';?>">Slider</a></li>
 						</ul>
 					</div>
 				</div>	

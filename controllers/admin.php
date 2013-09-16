@@ -269,18 +269,45 @@ class admin
 
 	public function manageSlider()
 	{
-		$z = 'Ent';
+		$z = 'Set'; // Var to focus "Settings in the menu"
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 
 		require_once 'models/slider.php';
-		$slides = new category();
+		$slides = new slider();
 		$slides = $slides->get();
 		require_once 'views/admin/header.php';
 		require_once 'views/admin/sidebar.php';
 		require_once 'views/admin/man_slider.php';
 		require_once 'views/admin/footer.php';
 
+	}
+
+	// Add new link to the slider
+	public function addSlider()
+	{
+		$z = 'Set';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'views/admin/header.php';
+		require_once 'views/admin/sidebar.php';
+		require_once 'views/admin/add_slider.php';
+		require_once 'views/admin/footer.php';
+	}
+
+	// control the input
+	public function controlSlider()
+	{
+		$z = 'Ent';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/category.php';
+		$name = htmlspecialchars($_POST['name'], ENT_QUOTES);
+		$category = new category();
+		$category->insert($name);
+		redirect(base_url().'admin/manageCategories');
 	}
 
 }
