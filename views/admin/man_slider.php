@@ -16,7 +16,7 @@
 				<tr>
 					<td><?php echo $slide['id'];?></td>
 					<td><?php echo $slide['link'];?></td>
-					<td><?php echo $slide['url_img'];?></td>
+					<td><?php echo $slide['img_url'];?></td>
 					<td><?php echo $slide['description'];?></td>
 					<td>
 						<a href="<?php echo base_url().'admin/editSlide/'.$slide['id'];?>">

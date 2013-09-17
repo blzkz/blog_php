@@ -303,11 +303,38 @@ class admin
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 
-		require_once 'models/category.php';
-		$name = htmlspecialchars($_POST['name'], ENT_QUOTES);
-		$category = new category();
-		$category->insert($name);
-		redirect(base_url().'admin/manageCategories');
+		require_once 'models/slider.php';
+		$link = htmlspecialchars($_POST['link'], ENT_QUOTES);
+		$url_img = htmlspecialchars($_POST['url_img'], ENT_QUOTES);
+		$description = htmlspecialchars($_POST['description'], ENT_QUOTES);
+		$slider = new slider();
+		if ($slider->insert($url_img, $link, $description))
+			redirect(base_url().'admin/manageSlider');
+		else redirect(base_url().'admin/manageSlider/error_insert');
+	}
+
+	// delete a slide
+	public function deleteSlide()
+	{
+		$uri = new uri();
+		$id = $uri->segment(3);
+		if ($id < 1)
+			die('The slide does not exist');
+
+		$z = 'Set';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'models/slider.php';
+		$slider = new slider();
+		$slider = $slider->delete($id);
+		
+		redirect(base_url().'admin/manageSlider');
+	}
+
+	// edit a slide
+	public function editSlide()
+	{
+		redirect(base_url().'admin/manageSlider');
 	}
 
 }
