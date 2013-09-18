@@ -30,7 +30,7 @@
 					<div class='accordion-inner'>
 						<ul class="unstyled">
 							<li>New</li>
-							<li>Manage</li>
+							<li><a href="<?php echo base_url().'admin/manageWorks/';?>">Manage</a></li>
 						</ul>
 					</div>
 				</div>

@@ -337,4 +337,76 @@ class admin
 		redirect(base_url().'admin/manageSlider');
 	}
 
+	// Manage the works images, description and links
+
+	public function manageWorks()
+	{
+		$z = 'Wor'; // Var to focus "Settings in the menu"
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/work.php';
+		$works = new work();
+		$works = $works->get();
+		require_once 'views/admin/header.php';
+		require_once 'views/admin/sidebar.php';
+		require_once 'views/admin/man_works.php';
+		require_once 'views/admin/footer.php';
+
+	}
+
+	// Add new work
+	public function addWork()
+	{
+		$z = 'Wor';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'views/admin/header.php';
+		require_once 'views/admin/sidebar.php';
+		require_once 'views/admin/add_work.php';
+		require_once 'views/admin/footer.php';
+	}
+
+	// control the input
+	public function controlWork()
+	{
+		$z = 'Wor';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+
+		require_once 'models/work.php';
+		$job = htmlspecialchars($_POST['job'], ENT_QUOTES);
+		$link = htmlspecialchars($_POST['link'], ENT_QUOTES);
+		$image = htmlspecialchars($_POST['image'], ENT_QUOTES);
+		$description = htmlspecialchars($_POST['description'], ENT_QUOTES);
+		$works = new work();
+		if ($works->insert($job, $link, $image, $description))
+			redirect(base_url().'admin/manageWorks');
+		else redirect(base_url().'admin/manageWorks/error_insert');
+	}
+
+	// delete a work
+	public function deleteWork()
+	{
+		$uri = new uri();
+		$id = $uri->segment(3);
+		if ($id < 1)
+			die('The slide does not exist');
+
+		$z = 'Wor';
+		if (!$this->isAdmin())
+			die('No tienes permisos para ver esta parte');
+		require_once 'models/work.php';
+		$works = new work();
+		$works = $works->delete($id);
+		
+		redirect(base_url().'admin/manageWorks');
+	}
+
+	// edit a work
+	public function editWork()
+	{
+		redirect(base_url().'admin/manageWorks');
+	}
 }
