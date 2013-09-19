@@ -15,6 +15,6 @@ class work extends model
 
 	public function delete($id)
 	{
-		return self::$con->query("DELETE FROM slider WHERE id = $id");
+		return self::$con->query("DELETE FROM works WHERE id = $id");
 	}
 }

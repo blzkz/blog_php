@@ -29,7 +29,7 @@
 				<div id="collapseTwo" class="accordion-body collapse <?php echo ($z==='Wor')? 'in' : 'out';?> ">
 					<div class='accordion-inner'>
 						<ul class="unstyled">
-							<li>New</li>
+							<li><a href="<?php echo base_url().'admin/addWork/';?>">New</a></li>
 							<li><a href="<?php echo base_url().'admin/manageWorks/';?>">Manage</a></li>
 						</ul>
 					</div>
