@@ -11,7 +11,7 @@
 			<div class="img" style="background: url(<?php echo $entry['image'];?>) no-repeat; background-position: center"></div>
 			<?php
 			echo $entry['content'];
-			echo "<div class='linea-3'></div>";
+			//echo "<div class='linea-3'></div>";
 			echo "</div>";
 			echo "<div class='clear'></div>";
 		}
@@ -30,7 +30,7 @@
 			<div class="img-small" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
 			<?php
 			echo $entry['content'];
-			echo "<div class='linea-1'></div>";
+			//echo "<div class='linea-1'></div>";
 			echo "</div>";
 			if (($i % 2) == 1)
 			{
