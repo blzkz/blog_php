@@ -1,4 +1,5 @@
 <h2><?php echo $ent['title']; ?></h2>
+<div class="img" style="background: url(<?php echo $ent['image'];?>) no-repeat; background-position: center"></div>
 <p><?php echo $ent['content']; ?></p>
 <div class="linea-1"></div>
 <h3>Comentarios:</h3>

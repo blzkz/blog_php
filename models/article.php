@@ -4,9 +4,9 @@ class article extends model
 	// Get N last posts
 	//private static $con;
 
-	public function insert($title, $content, $author, $slider = 0)
+	public function insert($title, $content, $author, $img)
 	{
-		return self::$con->query("INSERT INTO articles (title, content, author) VALUES ('".$title."','".$content."','".$author."')");
+		return self::$con->query("INSERT INTO articles (title, content, author, image) VALUES ('$title','$content','$author', '$img')");
 	}
 
 	public function get_n_last($n)
@@ -54,9 +54,9 @@ class article extends model
 
 	}
 
-	public function update($id, $title, $content)
+	public function update($id, $title, $content, $img)
 	{
-		return self::$con->query("UPDATE articles SET title='$title', content='$content' where id_article = $id");
+		return self::$con->query("UPDATE articles SET title='$title', content='$content', image='$img' where id_article = $id");
 	}
 
 	public function delete($id)

@@ -43,8 +43,9 @@ class admin
 				$article = new article();
 				$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
 				$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
+				$img = htmlspecialchars($_POST['url'], ENT_QUOTES);
 				$author = $_SESSION['nick'];
-				if ($article->insert($title, $content, $author))
+				if ($article->insert($title, $content, $author, $img))
 					redirect(base_url().'admin');
 				else redirect(base_url().'admin/newArticle/error');
 			}
@@ -70,7 +71,8 @@ class admin
 			{
 				$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
 				$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
-				if ($article->update($id, $title, $content))
+				$img = htmlspecialchars($_POST['url'], ENT_QUOTES);
+				if ($article->update($id, $title, $content, $img))
 					redirect(base_url().'admin/manageArticles');
 				else redirect(base_url().'admin/manageArticles/error');
 			}
