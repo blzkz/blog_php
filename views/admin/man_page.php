@@ -5,6 +5,7 @@
 					<th>#</th>
 					<th>Page name</th>
 					<th>Static Link</th>
+					<th>File Name</th>
 					<th>Options</th>
 					
 				</tr>
@@ -14,6 +15,7 @@
 				<tr>
 					<td><?php echo $page['id'];?></td>
 					<td><?php echo $page['name'];?></td>
+					<td><?php echo $page['file'];?></td>
 					<td><?php echo $page['url'];?></td>
 					<td>
 						<a href="<?php echo base_url().'admin/editPage/'.$page['id'];?>">

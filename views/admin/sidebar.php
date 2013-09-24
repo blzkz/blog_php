@@ -42,8 +42,8 @@
 				<div id="collapseThree" class="accordion-body collapse <?php echo ($z==='Pag')? 'in' : 'out';?>">
 					<div class='accordion-inner'>
 						<ul class="unstyled">
-							<li>New</li>
-							<li>Manage</li>
+							<li><a href="<?php echo base_url().'admin/addPage/';?>">New</a></li>
+							<li><a href="<?php echo base_url().'admin/managePages/';?>">Manage</a></li>
 						</ul>
 					</div>
 				</div>

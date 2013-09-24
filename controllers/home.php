@@ -27,6 +27,10 @@ class home
 	{
 		phpinfo();
 	}
+	public function prueba()
+	{
+		
+	}
 	public function tuiter()
 	{
 		$url = "https://api.twitter.com/1/statuses/user_timeline.json?include_rts=true&screen_name=blzkz&count=1";

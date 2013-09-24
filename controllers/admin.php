@@ -414,7 +414,7 @@ class admin
 
 	public function managePages()
 	{
-		$z = 'Wor'; // Var to focus "Settings in the menu"
+		$z = 'Pag'; // Var to focus "Settings in the menu"
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 
@@ -431,7 +431,7 @@ class admin
 	// Add new page
 	public function addPage()
 	{
-		$z = 'Wor';
+		$z = 'Pag';
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 
@@ -444,19 +444,18 @@ class admin
 	// control the input
 	public function controlPage()
 	{
-		$z = 'Wor';
+		$z = 'Pag';
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 
-		require_once 'models/work.php';
-		$job = htmlspecialchars($_POST['job'], ENT_QUOTES);
-		$link = adapta_link($_POST['link']);
-		$image = htmlspecialchars($_POST['image'], ENT_QUOTES);
-		$description = htmlspecialchars($_POST['description'], ENT_QUOTES);
-		$works = new work();
-		if ($works->insert($job, $link, $image, $description))
-			redirect(base_url().'admin/manageWorks');
-		else redirect(base_url().'admin/manageWorks/error_insert');
+		require_once 'models/page.php';
+		$name = htmlspecialchars($_POST['name'], ENT_QUOTES);
+		$url = adapta_link($_POST['url']);
+		$file = htmlspecialchars($_POST['file'], ENT_QUOTES);
+		$pages = new page();
+		if ($pages->insert($job, $link, $file))
+			redirect(base_url().'admin/managePages');
+		else redirect(base_url().'admin/managePages/error_insert');
 	}
 
 	// delete a page
@@ -465,14 +464,14 @@ class admin
 		$uri = new uri();
 		$id = $uri->segment(3);
 		if ($id < 1)
-			die('The slide does not exist');
+			die('The page does not exist');
 
-		$z = 'Wor';
+		$z = 'Pag';
 		if (!$this->isAdmin())
 			die('No tienes permisos para ver esta parte');
 		require_once 'models/work.php';
-		$works = new work();
-		$works = $works->delete($id);
+		$pages = new page();
+		$pages = $pages->delete($id);
 		
 		redirect(base_url().'admin/manageWorks');
 	}
