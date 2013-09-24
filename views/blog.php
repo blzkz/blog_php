@@ -10,7 +10,7 @@
 			echo 'by '.$entry['author'].'<p>'.$entry['n_comments'].' comentarios.</p>'; ?>
 			<div class="img" style="background: url(<?php echo $entry['image'];?>) no-repeat; background-position: center"></div>
 			<?php
-			echo $entry['content'];
+			echo str_replace("\n","<br>",substr($entry['content'],0,600)).'...';
 			//echo "<div class='linea-3'></div>";
 			echo "</div>";
 			echo "<div class='clear'></div>";
@@ -29,7 +29,7 @@
 			echo 'by '.$entry['author'].' '.$entry['n_comments'].' comentarios.'; ?>
 			<div class="img-small" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
 			<?php
-			echo $entry['content'];
+			echo str_replace("\n","<br>",substr($entry['content'],0,600)).'...';
 			//echo "<div class='linea-1'></div>";
 			echo "</div>";
 			if (($i % 2) == 1)

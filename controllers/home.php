@@ -29,7 +29,13 @@ class home
 	}
 	public function prueba()
 	{
-		
+		require_once 'models/article.php';
+		$ent = new article();
+		$ent = $ent->get_by_id(8);
+		echo "<html lang='es'>";
+		echo "<head><meta charset='UTF-8'></head>";
+		echo $ent['content'];
+		echo "</html>";
 	}
 	public function tuiter()
 	{

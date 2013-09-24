@@ -155,6 +155,7 @@ a:active {
 .img {
 	width: 780px;
 	height: 200px;
+	margin-bottom:10px;
 }
 
 .img-small {
