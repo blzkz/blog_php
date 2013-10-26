@@ -41,7 +41,8 @@ class article extends model
 
 	public function get_by_id($id)
 	{
-		$query = self::$con->query("SELECT * FROM articles where id_article = $id");
+		$query = self::$con->prepare("SELECT * FROM articles where id_article = ?");
+		$query->execute(array($id));
 		return $query->fetch();
 	}
 	
@@ -62,5 +63,12 @@ class article extends model
 	public function delete($id)
 	{
 		return self::$con->query("DELETE FROM articles WHERE id_article = $id");
+	}
+	
+	public function max_id()
+	{
+		$query = self::$con->query("SELECT MAX(id_article) FROM articles");
+		$a = $query->fetch();
+		return $a['MAX(id_article)'];
 	}
 }

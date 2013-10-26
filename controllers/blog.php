@@ -32,8 +32,9 @@ class blog
 		$ent = new article();
 		$uri = new uri();
 		$com = new comment();
-		if ( $uri->segment(3) > 0 ) 
+		if (( $uri->segment(3) > 0 ) && ($uri->segment(3) <= $ent->max_id()))
 		{
+			
 			$ent = $ent->get_by_id($uri->segment(3));
 			$com = $com->get_all($uri->segment(3));
 			require_once('views/header.php');
