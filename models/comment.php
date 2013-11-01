@@ -11,6 +11,12 @@ class comment extends model
 		return $records;
 	}
 
+	public function insert($id_article, $nick, $email, $content, $ip='0')
+	{
+		return self::$con->query("INSERT INTO comments (id_entry, comment, email, nick, ip) 
+			VALUES ('$id_article', '$content', '$email', '$nick', '$ip')");
+	}
+
 	public function get()
 	{
 		$query = self::$con->query("SELECT * FROM comments ORDER BY id DESC");
@@ -20,12 +26,18 @@ class comment extends model
 	public function get_by_id($id)
 	{
 		$query = self::$con->query("SELECT * FROM comments where id = $id");
+		return $query->fetch();
 	}
 
 	public function get_all($id)
 	{
 		$query = self::$con->query("SELECT * FROM comments where id_entry=$id");
 		return $query->fetchAll();
+	}
+
+	public function update($id, $comment)
+	{
+		self::$con->query("UPDATE comments SET comment='$comment' where id = $id");
 	}
 
 	public function delete($id)

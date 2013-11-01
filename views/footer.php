@@ -1,5 +1,6 @@
+		<div class="push"></div>
 		</div>
-		<div class="linea-1"></div>
+		<footer>
 		<script type="text/javascript">
 	    $(window).load(function() {
 	        $('#slider').nivoSlider({
@@ -24,5 +25,6 @@
 				<?php } ?>	
 	    	</div>
 	    </div>
+	    </footer>
 	</body>
 </html>

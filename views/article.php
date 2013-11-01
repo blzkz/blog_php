@@ -1,5 +1,8 @@
 <h2><?php echo $ent['title']; ?></h2>
-<p><?php echo $ent['content']; ?></p>
+<div class="img" style="background: url(<?php echo $ent['image'];?>) no-repeat; background-position: center"></div>
+<p>
+<?php echo str_replace("\n","<br>",$ent['content']); ?>
+</p>
 <div class="linea-1"></div>
 <h3>Comentarios:</h3>
 <?php

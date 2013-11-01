@@ -22,4 +22,4 @@
 				<h3><a href="<?php echo base_url();?>blog/">blog</a></h3>
 			</div>
 		</div>
-		<div class="container_12">
+		<div class="container_12" id="main">

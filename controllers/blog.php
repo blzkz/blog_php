@@ -13,7 +13,7 @@ class blog
 		$com = new comment();
 		foreach ($art as $article)
 		{
-			$id = $article['id_news'];
+			$id = $article['id_article'];
 			$art[$i]['n_comments'] = $com->count($id);
 			//print_r($ent[$i]['n_comments']);
 			$i++;
@@ -32,8 +32,9 @@ class blog
 		$ent = new article();
 		$uri = new uri();
 		$com = new comment();
-		if ( $uri->segment(3) > 0 ) 
+		if (( $uri->segment(3) > 0 ) && ($uri->segment(3) <= $ent->max_id()))
 		{
+			
 			$ent = $ent->get_by_id($uri->segment(3));
 			$com = $com->get_all($uri->segment(3));
 			require_once('views/header.php');
@@ -57,9 +58,9 @@ class blog
 				$nick = htmlspecialchars($_POST['nick'],ENT_QUOTES);
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
-				$id_news = htmlspecialchars($_POST['id'],ENT_QUOTES);
-				//echo 'id '.$id_news.' nick '.$nick.' email '.$email. ' com '.$content;
-				$comment->insert($id_news, $nick, $email, $content);
+				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
+				//echo 'id '.$id_article.' nick '.$nick.' email '.$email. ' com '.$content;
+				$comment->insert($id_article, $nick, $email, $content);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
@@ -72,8 +73,9 @@ class blog
 				$uri = new uri();
 				$user = $user->get_by_nick($_SESSION['nick']);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
-				$id_news = $uri->segment(3);
-				$comment->insert($id_news, $user['nick'], $user['email'], $content);
+				$id_article = htmlspecialchars($_POST['id'], ENT_QUOTES);
+				$comment->insert($id_article, $user['nick'], $user['email'], $content);
+				redirect($_SERVER['HTTP_REFERER']);
 			}
 			else die("no has completado el formulario");
 		}
@@ -98,7 +100,7 @@ class blog
 				$com = new comment();
 				foreach ($art as $article)
 				{
-					$id = $article['id_news'];
+					$id = $article['id_article'];
 					$art[$i]['n_comments'] = $com->count($id);
 					$i++;
 				}
@@ -118,7 +120,7 @@ class blog
 					$com = new comment();
 					foreach ($articles as $article)
 					{
-						$id = $article['id_news'];
+						$id = $article['id_article'];
 						$articles[$i]['n_comments'] = (int)$com->count($id);
 						$i++;
 					}
@@ -141,6 +143,11 @@ class blog
 		else echo "no es entero";
 		//require_once('views/pagina.php');
 		
+	}
+
+	public function info()
+	{
+		phpinfo();
 	}
 } 
 ?>

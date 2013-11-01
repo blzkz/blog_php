@@ -6,7 +6,7 @@
 					<th>Name</th>
 					<!-- <th>Comments</th>  -->
 					<th>Options</th>
-					<th><img class='img-grey' src='<?php echo base_url();?>images/plus.png'> New</th>
+					<th><a href='<?php echo base_url();?>admin/addCategory'><img class='img-grey' src='<?php echo base_url();?>images/plus.png'> New</a></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -16,10 +16,10 @@
 					<td><?php echo $category['name'];?></td>
 					<td>
 						<a href="<?php echo base_url().'admin/editCategory/'.$category['id'];?>">
-							<img class='img-grey' src='<?php echo base_url();?>images/edit.png'>
+							<img class='img-grey' title ='Edit category' alt='Edit category' src='<?php echo base_url();?>images/edit.png'>
 						</a>
 						<a href="<?php echo base_url().'admin/deleteCategory/'.$category['id'];?>">
-							<img class='img-grey' src='<?php echo base_url();?>images/delete.png'>
+							<img class='img-grey' title='Delete category'alt='Delete category' src='<?php echo base_url();?>images/delete.png'>
 						</a>
 					</td>
 				</tr><?php } ?>

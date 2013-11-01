@@ -24,7 +24,7 @@ class login
 				if ($query->execute(array($_POST['nick'])))
 				{
 					$row = $query->fetch();
-					if ($row['password'] == $_POST['password']) {
+					if ($row['password'] == hash("sha256",$_POST['password'])) {
 						//session_start();
 						$_SESSION['nick'] = $_POST['nick'];
 						redirect(base_url());

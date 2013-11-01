@@ -3,3 +3,4 @@
 .jsdtscope
 org.eclipse*
 config/database.php
+*.sql
