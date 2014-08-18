@@ -28,7 +28,7 @@
 			<ul>
 				<li><img src="http://i.imgur.com/blEX7XS.png" height="35" width="80"> blzkz.es</li>
 				<li><img src="images/img1.png" height="35" width="80"><a href="http://vaenserie.com">vaenserie.com</a></li>
-			<ul>
+			</ul>
 		</div>
 		<div class="grid_4">
 			<h3 class='title-black bottom-dotted'>Sobre mi..</h3>
