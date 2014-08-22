@@ -46,6 +46,7 @@ class blog
 
 	function control_comment()
 	{
+		require_once 'models/article.php';
 		require_once 'models/comment.php';
 		if (!isset($_SESSION['nick']))
 		{
@@ -60,10 +61,12 @@ class blog
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
 				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
+				$pattern = "^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$";
 				//echo 'id '.$id_article.' nick '.$nick.' email '.$email. ' com '.$content;
-				if ( $uri->is_reffer() && $article->exists($id_article) )
+				if ( $uri->is_reffer() && $article->exists($id_article) && preg_match($pattern,$email) !== FALSE )
 					$comment->insert($id_article, $nick, $email, $content);
-				else die("No vienes de blzkz.es")
+				else 
+					die("No vienes de blzkz.es o mail mal");
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
