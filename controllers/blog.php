@@ -54,13 +54,16 @@ class blog
 			else
 			{
 				$comment = new comment();
+				$article = new article();
 				$uri = new uri();
 				$nick = htmlspecialchars($_POST['nick'],ENT_QUOTES);
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
 				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
 				//echo 'id '.$id_article.' nick '.$nick.' email '.$email. ' com '.$content;
-				$comment->insert($id_article, $nick, $email, $content);
+				if ( $uri->is_reffer() && $article->exists($id_article) )
+					$comment->insert($id_article, $nick, $email, $content);
+				else die("No vienes de blzkz.es")
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}

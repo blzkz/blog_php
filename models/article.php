@@ -71,4 +71,8 @@ class article extends model
 		$a = $query->fetch();
 		return $a['MAX(id_article)'];
 	}
+	public function exists(id)
+	{
+		return (count(get_by_id($id)) > 0);
+	}
 }

@@ -26,4 +26,11 @@ class Uri
 				return explode('/', $_SERVER['PATH_INFO']);
 			else return NULL;
 	}
+	function is_reffer()
+	{
+		if (!isset($_SERVER['HTTP_REFERER']))
+			return false;
+		else
+			return stripos($_SERVER['HTTP_REFERER'], "blzkz.es");
+	}
 }
