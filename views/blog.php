@@ -1,6 +1,7 @@
 
 	<?php 
 	$i = 1;
+	$num_articles = count($art);
 	foreach ($art as $entry)
 	{
 		if ($i===1)
@@ -15,8 +16,9 @@
 			echo "</div>";
 			echo "<div class='clear'></div>";
 		}
-		else
+		else if ($num_articles > 1)
 		{
+			echo "<div class='container'>";
 			if (($i%2 === 1))
 			{
 				echo "<div class='grid_6'>";
@@ -36,6 +38,7 @@
 			{
 				echo "<div class='clear'></div>";
 			}
+			echo "</div>";
 			
 		}
 		$i++;
