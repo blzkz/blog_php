@@ -32,7 +32,7 @@
 		</div>
 		<div class="grid_4">
 			<h3 class='title-black bottom-dotted'>Sobre mi..</h3>
-			Me llamo Sergio Blázquez y soy estudiante de ingeniería técnica informática de gestión.
+			Me llamo Sergio Blázquez y soy ingeniero técnico en informática de gestión.
 			<br>
 			<a href='#'>Ver cv</a>
 		</div>
