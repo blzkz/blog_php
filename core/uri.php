@@ -11,6 +11,8 @@ class Uri
 			$array = explode('/', $_SERVER['ORIG_PATH_INFO']);
 		else if(isset ($_SERVER['PATH_INFO']))
 				$array = explode ('/', $_SERVER['PATH_INFO']);
+		else if (isset ($_SERVER['REQUEST_URI']))
+			$array = explode('/', $_SERVER['REQUEST_URI']);
 			else return NULL;
 		
 		if (isset($array[$i]) && $array[$i]!= '')
@@ -24,6 +26,8 @@ class Uri
 			return explode('/', $_SERVER['ORIG_PATH_INFO']);
 		else if(isset ($_SERVER['PATH_INFO']))
 				return explode('/', $_SERVER['PATH_INFO']);
+		else if (isset ($_SERVER['REQUEST_URI']))
+				return explode('/', $_SERVER['REQUEST_URI']);
 			else return NULL;
 	}
 	function is_reffer()
