@@ -61,12 +61,17 @@ class blog
 				$email = htmlspecialchars($_POST['email'],ENT_QUOTES);
 				$content = htmlspecialchars($_POST['comment'],ENT_QUOTES);
 				$id_article = htmlspecialchars($_POST['id'],ENT_QUOTES);
-				$pattern = "^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$";
+				//$pattern = "^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}$";
 				//echo 'id '.$id_article.' nick '.$nick.' email '.$email. ' com '.$content;
-				if ( $uri->is_reffer() && $article->exists($id_article) && preg_match($pattern,$email) !== FALSE )
+				if ( $uri->is_reffer() && $article->exists($id_article) && filter_var($email, FILTER_VALIDATE_EMAIL))
 					$comment->insert($id_article, $nick, $email, $content);
 				else 
-					die("No vienes de blzkz.es o mail mal");
+					if (!$uri->is_reffer())
+						die("No vienes de blzkz.es o mail mal");
+					else if (!$article->exists($id_article))
+						die("No existe el artículo");
+					else
+						die("Die hard");
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
