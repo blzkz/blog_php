@@ -13,6 +13,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript" src='<?php echo base_url();?>js/jquery.nivo.slider.pack.js'></script>
     	<script type="text/javascript" src='<?php echo base_url();?>js/bootstrap.js'></script>
+    	<script type="text/javascript" src='<?php echo base_url();?>js/oso.js'></script>
 		
 	</head>
 	<body>
