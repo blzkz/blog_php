@@ -4,6 +4,7 @@
 	include_once('core/uri.php');
 	include_once('core/constants.php');
 	require('helpers/url.php');
+	require_once('helpers/bbcode.php');
 
 	// objeto de la clase Uri ( core/uri.php )
 	$uri = new Uri();
