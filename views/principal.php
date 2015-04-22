@@ -1,6 +1,7 @@
 	<div class="grid_8 prefix_2">
 		<div class="slider-wrapper theme-light">
 	        <div id="slider" class="nivoSlider">
+	        	<a href="http://www.blzkz.es/blog/article/14"><img src="http://i.imgur.com/9Fu7fFa.png" data-thumb="http://i.imgur.com/K8a9L9g.png" alt="" title="Desarrollando videjuegos: experiencia personal"/></a>
 	            <img src="http://i.imgur.com/K8a9L9g.png" data-thumb="http://i.imgur.com/K8a9L9g.png" alt="" title="Interiores de la web"/>
 	            <a href="http://www.vaenserie.com"><img src="images/img1.png" data-thumb="images/img1.jpg" alt="eoh" title="Desarrollo y diseño de vaenserie.com (El oso Hormiguero)" /></a>
 	        </div>
@@ -17,8 +18,10 @@
 	foreach ($ent as $entry)
 	{?>
 		<div class='grid_6'>
-			<h3 class='title-black bottom-dotted'><?php echo $entry['title'];?></h3>
-			<?php echo substr($entry['content'],0,600).'...'; ; ?>
+			<h4 class='title-black bottom-dotted'><?php echo $entry['title'];?></h4>
+			<?php echo substr(bbcode_parser_without_img($entry['content']),0,600).'...'; ; ?>
+			<br />
+			<?php echo "<a href='".base_url().'blog/article/'.$entry['id_article']."' >".'leer más</a>'; ?>
 		</div>
 	<?php } ?>
 	</div>

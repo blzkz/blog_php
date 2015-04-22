@@ -11,14 +11,14 @@
 			echo 'by '.$entry['author'].'<p>'.$entry['n_comments'].' comentarios.</p>'; ?>
 			<div class="img" style="background: url(<?php echo $entry['image'];?>) no-repeat; background-position: center"></div>
 			<?php
-			echo str_replace("\n","<br>",substr($entry['content'],0,600)).'...';
+			echo str_replace("\n","<br>",bbcode_parser_without_img(substr($entry['content'],0,600))).'...';
 			//echo "<div class='linea-3'></div>";
 			echo "</div>";
 			echo "<div class='clear'></div>";
 		}
 		else if ($num_articles > 1)
 		{
-			echo "<div class='container'>";
+			//echo "<div class='container'>";
 			if (($i%2 === 1))
 			{
 				echo "<div class='grid_6'>";
@@ -31,14 +31,14 @@
 			echo 'by '.$entry['author'].' '.$entry['n_comments'].' comentarios.'; ?>
 			<div class="img-small" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
 			<?php
-			echo str_replace("\n","<br>",substr($entry['content'],0,600)).'...';
+			echo str_replace("\n","<br>",bbcode_parser_without_img(substr($entry['content'],0,600))).'...';
 			//echo "<div class='linea-1'></div>";
 			echo "</div>";
 			if (($i % 2) == 1)
 			{
 				echo "<div class='clear'></div>";
 			}
-			echo "</div>";
+			//echo "</div>";
 			
 		}
 		$i++;

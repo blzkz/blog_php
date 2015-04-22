@@ -4,7 +4,7 @@
 	{
 		echo "<h3 class='title-green'>".$entry['title'].'</h3>';
 		echo "<div class='author'>".'Author: '.$entry['author'].' '.$entry['n_comments'].' comentarios.</div><br>';
-		echo $entry['content'];
+		echo bbcode_parser_without_img($entry['content']);
 		echo '<div class="linea-1"></div>';
 	}?>
 
