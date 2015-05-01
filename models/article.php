@@ -73,6 +73,9 @@ class article extends model
 	}
 	public function exists($id)
 	{
-		return (count($this->get_by_id($id)) > 0);
+		$q = self::$con->prepare("SELECT COUNT(*) as records FROM articles where id_article = ?");
+		$q->execute(array($id));    
+		$records = (int) $q->fetch(PDO::FETCH_OBJ)->records;
+		return ($records > 0);
 	}
 }

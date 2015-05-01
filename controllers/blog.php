@@ -32,7 +32,8 @@ class blog
 		$ent = new article();
 		$uri = new uri();
 		$com = new comment();
-		if (( $uri->segment(3) > 0 ) && ($uri->segment(3) <= $ent->max_id()))
+		$exist = $ent->exists($uri->segment(3));
+		if ( ($uri->segment(3) > 0) && $exist )
 		{
 			
 			$ent = $ent->get_by_id($uri->segment(3));
@@ -41,7 +42,12 @@ class blog
 			require_once('views/article.php');
 			require_once('views/footer.php');
 		}
-		else die ("404 not found");
+		else {
+			header('HTTP/1.0 404 Not Found');
+	    echo '<h1>Error 404 Not Found</h1>';
+	    echo 'The page that you have requested could not be found.';
+    	exit();
+		}
 	}
 
 	function control_comment()
