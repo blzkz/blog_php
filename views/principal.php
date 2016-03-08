@@ -1,5 +1,5 @@
 	<div class="row">
-	<div class="col-md-8 col-md-offset-8">
+	<div class="col-md-8 col-md-offset-4">
 		<div class="slider-wrapper theme-light">
 	        <div id="slider" class="nivoSlider">
 	        	<a href="http://www.blzkz.es/blog/article/14"><img src="http://i.imgur.com/9Fu7fFa.png" data-thumb="http://i.imgur.com/K8a9L9g.png" alt="" title="Desarrollando videjuegos: experiencia personal"/></a>
