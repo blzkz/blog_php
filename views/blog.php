@@ -1,4 +1,4 @@
-
+<div class='row'>
 	<?php 
 	$i = 1;
 	$num_articles = count($art);
@@ -6,37 +6,46 @@
 	{
 		if ($i===1)
 		{
-			echo "<div class='grid_12'>";
+			
+			echo "<div class='col-md-6'>";
 			echo "<a href='".base_url().'blog/article/'.$entry['id_article']."' >".'<h3>'.$entry['title'].'</h3></a>';
 			echo 'by '.$entry['author'].'<p>'.$entry['n_comments'].' comentarios.</p>'; ?>
-			<div class="img" style="background: url(<?php echo $entry['image'];?>) no-repeat; background-position: center"></div>
+			<div class="crop">
+				<img src="<?php echo $entry['image'];?>" />
+			</div>
 			<?php
 			echo str_replace("\n","<br>",bbcode_parser_without_img(substr($entry['content'],0,600))).'...';
 			//echo "<div class='linea-3'></div>";
 			echo "</div>";
-			echo "<div class='clear'></div>";
+			//echo "<div class='clear'></div>";
+			echo "<div class='hidden-xs hidden-sm col-md-6'><h3>Últimos comentarios</h3> </div>";
+			echo "</div>"; //end row
 		}
 		else if ($num_articles > 1)
 		{
 			//echo "<div class='container'>";
 			if (($i%2 === 1))
 			{
-				echo "<div class='grid_6'>";
+				echo "<div class='col-md-6'>";
 			}
 			else
 			{
-				echo "<div class='grid_6'>";
+				echo "<div class='row'>";
+				echo "<div class='col-md-6'>";
 			}
 			echo "<a href='".base_url().'blog/article/'.$entry['id_article']."' >".'<h3>'.$entry['title'].'</h3></a>';
 			echo 'by '.$entry['author'].' '.$entry['n_comments'].' comentarios.'; ?>
-			<div class="img-small" style="background: url(<?php echo $entry['image'];?>) no-repeat;background-position: -200px -150px;"></div>
+			<div class="crop">
+				<img src="<?php echo $entry['image'];?>" />
+			</div>
 			<?php
 			echo str_replace("\n","<br>",bbcode_parser_without_img(substr($entry['content'],0,600))).'...';
 			//echo "<div class='linea-1'></div>";
 			echo "</div>";
 			if (($i % 2) == 1)
 			{
-				echo "<div class='clear'></div>";
+				//echo "<div class='clear'></div>";
+				echo '</div>'; // end of row
 			}
 			//echo "</div>";
 			

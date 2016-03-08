@@ -163,6 +163,19 @@ a:active {
 	height: 150px;
 }
 
+/* nuevo para imagenes */
+
+.crop {
+	height: 180px;
+	overflow: hidden;
+	/*margin-bottom:10px;*/
+}
+
+.crop img {
+	/*height: 200px;*/
+	margin: -20% 0 0 -20%;
+}
+
 /* modificaciones de bootstrap */
 .accordion-heading {
   border-bottom: 1px solid #e5e5e5;
