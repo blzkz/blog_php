@@ -28,6 +28,7 @@
 	    </footer>
 	    <nav class="navbar navbar-inverse navbar-fixed-bot">
 		    <div class="container">
+		    <div class='footer'>
 			    Diseño y programación por blzkz. Todos los derechos reservados.<br>
 		    	<?php
 					if (isset($_SESSION['nick'])) {?>
@@ -42,6 +43,7 @@
 					{ ?>
 						<a href="<?php echo base_url().'login';?>">Login</a>
 					<?php } ?>	
+					</div>
 		    </div>
 	    </nav>
 	</body>
