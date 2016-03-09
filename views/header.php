@@ -12,6 +12,7 @@
     	<script type="text/javascript" src='<?php echo base_url();?>js/bootstrap.js'></script>
     	<script type="text/javascript" src='<?php echo base_url();?>js/oso.js'></script>
   	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	<body>
 		<div class="container">

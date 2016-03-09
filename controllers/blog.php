@@ -56,7 +56,7 @@ class blog
 		require_once 'models/comment.php';
 		if (!isset($_SESSION['nick']))
 		{
-			if ($_POST['nick'] === '' || $_POST['email'] === '' || $_POST['comment'] === '')
+			if ($_POST['nick'] === '' || $_POST['email'] === '' || $_POST['comment'] === '' || $_POST['g-recaptcha-response'] != true)
 				die("no has rellenado el formulario");
 			else
 			{

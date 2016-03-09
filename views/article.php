@@ -48,6 +48,9 @@
 			</div>
 			<?php } ?>
 			<textarea name="comment" rows="12" id="comment" style="width:610px" ></textarea>
+			<?php if (!isset($_SESSION['nick'])) { ?>
+			<div class="g-recaptcha" data-sitekey="6LeLXhoTAAAAAJL2jTC528O7YCf3BmQX8zE6AYDx"></div>
+			<?php } ?>
 			<input type="submit" name="" value="Enviar" />
 		</form>
 	</div> <!-- col -->
