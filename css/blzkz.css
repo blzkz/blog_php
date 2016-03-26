@@ -82,30 +82,6 @@ a:active {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
-.nav_bar{
-	/* top:0;
-	background-image: linear-gradient(bottom, rgb(61,60,60) 29%, rgb(128,126,125) 65%, rgb(153,153,153) 83%);
-	background-image: -o-linear-gradient(bottom, rgb(61,60,60) 29%, rgb(128,126,125) 65%, rgb(153,153,153) 83%);
-	background-image: -moz-linear-gradient(bottom, rgb(61,60,60) 29%, rgb(128,126,125) 65%, rgb(153,153,153) 83%);
-	background-image: -webkit-linear-gradient(bottom, rgb(61,60,60) 29%, rgb(128,126,125) 65%, rgb(153,153,153) 83%);
-	background-image: -ms-linear-gradient(bottom, rgb(61,60,60) 29%, rgb(128,126,125) 65%, rgb(153,153,153) 83%);
-
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.29, rgb(61,60,60)),
-		color-stop(0.65, rgb(128,126,125)),
-		color-stop(0.83, rgb(153,153,153))
-	);*/
-	padding: 0px;
-	margin-bottom: 15px; 
-	background-color:#423f3f; 
-	color:#ffffff; 
-	
-	height: 30px;
-	width: 100%;
-}
 
 .author {
 	font-style: italic;
@@ -202,18 +178,12 @@ a:active {
 .push {
 height: 4em;
 }
-footer{
+.navbar {
+	margin-bottom: 0;
+}
 
-	color:#ccc;
+.footer{
+
+	color:#ffffff;
 	font-size:12px;
-
-/*	height: 4em;
-	bottom: 0px; */
-	position: relative;
-	margin-top: -100px; /* negative value of footer height */
-	height: 100px;
-	clear:both;
-	padding-top:20px;
-	background-color:#31353a;
-
 }

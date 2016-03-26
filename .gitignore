@@ -5,3 +5,4 @@ org.eclipse*
 config/database.php
 *.sql
 *.php~
+sftp-config.json
